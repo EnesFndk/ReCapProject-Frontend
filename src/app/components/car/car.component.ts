@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from 'src/app/models/car/car';
+import { ActivatedRoute } from '@angular/router';
+import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/carservice/car.service';
 
 @Component({
@@ -12,12 +13,11 @@ export class CarComponent implements OnInit {
   dataLoaded = false;
   
 
-  constructor(private carService:CarService) {}
+  constructor(private carService:CarService, private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getCars();
+    this.getCars()
   }
-
 
   getCars() {
     this.carService.getCars().subscribe(response => {
