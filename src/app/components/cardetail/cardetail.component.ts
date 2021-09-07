@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/cardetail';
 import { CardetailService } from 'src/app/services/cardetailservice/cardetail.service';
 
@@ -9,7 +10,8 @@ import { CardetailService } from 'src/app/services/cardetailservice/cardetail.se
   styleUrls: ['./cardetail.component.css']
 })
 export class CardetailComponent implements OnInit {
-  cardetails : CarDetail[] = [];
+  cardetails : CarDetail[];
+  cars :Car[];
   dataLoaded = false;
 
   constructor(private carDetailService:CardetailService, private activadedRoute:ActivatedRoute) { }
@@ -49,3 +51,4 @@ export class CardetailComponent implements OnInit {
     })
   }
 }
+

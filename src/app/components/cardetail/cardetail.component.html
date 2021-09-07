@@ -1,8 +1,8 @@
-<button *ngIf="dataLoaded==false" class="btn btn-primary" type="button" disabled>
+<button *ngIf="dataLoaded==false"  class="btn btn-primary"  type="button" disabled>
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
     Loading...
 </button>
-<table *ngIf="dataLoaded==true" class="table"> 
+<table *ngIf="dataLoaded==true"  class="table"> 
     <thead>
         <tr>
             <th>Car Id</th>
@@ -12,7 +12,7 @@
             <th>Model Year</th>
             <th>Daily Price</th>
             <th>Description</th>
-            
+            <th></th>
         </tr>
     </thead>
     <tr *ngFor="let cardetail of cardetails">
@@ -23,5 +23,10 @@
         <td>{{cardetail.modelYear}}</td>
         <td>{{cardetail.dailyPrice}}</td>
         <td>{{cardetail.description}}</td>
+        <td> <button type= "button" routerLink="/cardetails/car/{{cardetail.carId}}" class="btn btn-primary btn-sm">
+                Detaylar
+            </button>
+        </td>
     </tr>
+   
 </table>
