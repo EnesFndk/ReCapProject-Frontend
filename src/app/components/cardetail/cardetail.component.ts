@@ -13,6 +13,7 @@ export class CardetailComponent implements OnInit {
   cardetails : CarDetail[];
   cars :Car[];
   dataLoaded = false;
+  filterText="";
 
   constructor(private carDetailService:CardetailService, private activadedRoute:ActivatedRoute) { }
 

@@ -2,8 +2,18 @@
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
     Loading...
 </button>
+<div class="mb-3">
+    <label for="filterText" class="form-label">Arama</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama ifadesi giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-black">
+    {{filterText}} aradınız
+</div>
+<app-car-filter></app-car-filter>
+
 <table *ngIf="dataLoaded==true"  class="table"> 
     <thead>
+
         <tr>
             <th>Car Id</th>
             <th>Car Name</th>
@@ -11,22 +21,26 @@
             <th>Color Name</th>
             <th>Model Year</th>
             <th>Daily Price</th>
+            <th>Kdv'li Price</th>
             <th>Description</th>
-            <th></th>
         </tr>
+        
     </thead>
-    <tr *ngFor="let cardetail of cardetails">
+    <tr *ngFor="let cardetail of cardetails | cardetailsFilter:filterText">
         <td>{{cardetail.carId}}</td>
         <td>{{cardetail.carName}}</td>
         <td>{{cardetail.brandName}}</td>
         <td>{{cardetail.colorName}}</td>
         <td>{{cardetail.modelYear}}</td>
-        <td>{{cardetail.dailyPrice}}</td>
+        <td>{{cardetail.dailyPrice}} ₺</td>
+        <td>{{cardetail.dailyPrice | vatAdded:18}} ₺</td>
         <td>{{cardetail.description}}</td>
-        <td> <button type= "button" routerLink="/cardetails/car/{{cardetail.carId}}" class="btn btn-primary btn-sm">
+        <tbody>
+        <td> <button type= "button" routerLink="/cardetails/car/{{cardetail.carId}}" class="btn btn-success btn-sm">
                 Detaylar
             </button>
         </td>
+        </tbody>
     </tr>
    
 </table>

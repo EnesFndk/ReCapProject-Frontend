@@ -46,6 +46,12 @@
                 </td>
               </tr>
               <tr>
+                <td><span class="bold">Kdv'li Fiyat</span></td>
+                <td colspan="2">
+                  {{ cardetail.dailyPrice | vatAdded:18 }} ₺
+                </td>
+              </tr>
+              <tr>
                 <td><span class="bold">Description</span></td>
                 <td colspan="2">
                   {{ cardetail.description }}
