@@ -18,6 +18,8 @@ import { RentalComponent } from './components/rental/rental.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { CardetailsFilterPipe } from './pipes/cardetails-filter.pipe';
 import { CarFilterComponent } from './components/car-filter/car-filter.component';
+import { CreditCardComponent } from './components/credit-card/credit-card.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,9 @@ import { CarFilterComponent } from './components/car-filter/car-filter.component
     VatAddedPipe,
     CardetailsFilterPipe,
     CarFilterComponent,
+    CreditCardComponent,
+    PaymentComponent
+
     ],
   imports: [
     BrowserModule,

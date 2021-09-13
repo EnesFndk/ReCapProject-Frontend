@@ -1,27 +1,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <div class="container-fluid">
   <h1 class="text-md-center">
+    
     <span class="o">C</span><span class="o">ar</span><span class="o1">De</span>
     <span class="g">ta</span><span class="l">i</span><span class="l">l</span>
   </h1>
+  
   <div class="container">
       <div 
         *ngFor="let carImage of carImages"
         [class]="getCurrentImageClass(carImage)"
         class="container-fluid"
       >
+      
         <img 
         style="text-align: center; margin: auto;"
           [src]="getPath(carImage)"
           class="img-thumbnail img-fluid m-x-auto d-block"
           width="450px"
         />
+        
         <div class="caption text-md-center"><br/>
           <em>Kiralamanın Tek Adresi</em>
         </div>
         <hr />
         <div class="card card-1 text-md-center" id="card1">
           <table  class="table table-hover">
+            
             <tbody *ngFor="let cardetail of cardetails">
               <tr>
                 <td><span class="bold">Marka</span></td>
@@ -58,7 +63,20 @@
                 </td>
               </tr>
             </tbody>
+            
           </table>
+          <div style="max-width: 500px; margin: auto; margin-top: 50px;">
+            <h1 style="text-align: center;">Arabayı Kirala</h1>
+            <div style="margin-top: 20px;">
+              <label for="rentDate" class="form-label">Kiralama Tarihi</label>
+              <input type="date" [(ngModel)]="rentDate" [min]="lastRentalReturnDate" class="form-control" id="rentDate">
+            </div>
+            <div style="margin-top: 20px;">
+              <label for="returnDate" class="form-label">Teslim Etme Tarihi</label>
+              <input type="date" [(ngModel)]="returnDate" class="form-control" id="returnDate">
+            </div>
+          <button  type="button" style="margin-top: 20px;" (click)="rentCar(newRental)" class="btn btn-success">Kirala</button>
+          </div>
         </div>
       </div>
   </div>
