@@ -8,7 +8,7 @@ export interface CarDetail {
     modelYear:number,
     dailyPrice:number,
     description:string,
-
+    
     brandId:number,
     colorId:number
     

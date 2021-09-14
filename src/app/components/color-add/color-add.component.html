@@ -1,0 +1,20 @@
+<div class="content">
+    <div col-md-12>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Renk Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="colorAddForm">
+                    <div class="form-group mb-4">
+                        <label for="colorName">Renk : </label>
+                        <input type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="Renk " required />
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-outline-dark" (click)="colorsadd()">Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>

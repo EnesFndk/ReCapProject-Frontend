@@ -42,6 +42,7 @@ export class CarComponent implements OnInit {
         this.getCarDetailPage(params['carId']);
         this.getCarImage(params['carId']);
         this.getLastRentalByCarId(params['carId'])
+        this.carId = params['carId'];
       }
       else{
         this.getCarDetails();
@@ -147,6 +148,7 @@ export class CarComponent implements OnInit {
     rental.customerId = this.customerId
     rental.rentDate = new Date(this.rentDate)
     rental.returnDate = new Date(this.returnDate)
+    console.log(rental)
     if (this.isDatesValid === true) {
       this.toastrService.success("İşlem başarılı! Ödeme sayfasına yönlendiriliyorsunuz.")
       this.router.navigate(['cardetails/rent/', JSON.stringify(rental)]);

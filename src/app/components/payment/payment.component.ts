@@ -27,7 +27,7 @@ export class PaymentComponent implements OnInit {
   cvv:number
   cardType:string
   creditCard:CreditCard
-
+  
   carForRent:CarDetail[]
 
   rental:Rental
@@ -43,17 +43,22 @@ export class PaymentComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       if (params["rental"]) {
         this.rental = JSON.parse(params["rental"])
+        console.log(this.rental)
         let carId = this.rental.carId
         this.rental.carId = parseInt(carId.toString())
         let diffrenceInTime = new Date(this.rental.returnDate).getTime() - new Date(this.rental.rentDate).getTime()
-        this.rentDayCount = diffrenceInTime / (1000 * 3600 * 24)
-        this.getCarDetailPage(this.rental.carId)
+        this.rentDayCount = diffrenceInTime / (1000 * 3600 * 24);
+        console.log(carId)
+        this.getCarDetailPage(this.rental.carId);
+        this.calculateAmount();
       }
     })
+   
   }
 
   calculateAmount(){
     this.amountOfRent = this.rentDayCount * this.carForRent[0].dailyPrice
+    console.log(this.amountOfRent)
     return this.amountOfRent
   }
 

@@ -25,9 +25,10 @@
         <input type="radio" [(ngModel)]="cardType" id="bankCard" name="creditCardType" class="form-check-input" value="Banka Kartı">
         <label for="creditCard" class="from-label">Banka Kartı</label>
     </div>
-    <div class="alert alert-danger" role="alert" style="max-width: 250px; float: right;" [(ngModel)]="calculateAmount" >
-        
+    <div class="alert alert-dark" role="alert" style="max-width: 250px; float: right;" [(ngModel)]="calculateAmount" >
+        <span>Toplam Tutar : {{calculateAmount()}} ₺</span>
     </div>
     <button class="btn btn-success" (click)="pay()" style="margin-top: 70px;" >Ödemeyi yap</button>
 
 </div>
+
