@@ -1,0 +1,30 @@
+<table class="table table-striped">
+    <thead class="table-primary">
+        <tr>
+            <th scope="col">Araç ID No</th>
+            <th scope="col">Marka</th>
+            <th scope="col">Araç adı</th>
+            <th scope="col">Renk</th>
+            <th scope="col">Model yılı</th>
+            <th scope="col">Günlük fyatı</th>
+            <th scope="col">Açıklama</th>
+
+            <th scope="col"><button class="btn btn-success" click="routerLink" routerLink="add">Araç Ekle</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cardetail of cardetails">
+            <th scope="row">{{cardetail.carId}}</th>
+            <td>{{cardetail.brandName}}</td>
+            <td>{{cardetail.carName}}</td>
+            <td>{{cardetail.colorName}} </td>
+            <td>{{cardetail.modelYear}}</td>
+            <td>{{cardetail.dailyPrice}}</td>
+            <td>{{cardetail.description}}</td>
+            <td>
+                <button class="btn btn-warning" click="routerLink" routerLink="update/{{cardetail.carId}}"><i class="fa fa-edit"></i> Düzenle</button>
+                &nbsp;<button class="btn btn-danger" click="routerLink" routerLink="delete/{{cardetail.carId}}"><i class="fa fa-trash"></i> Sil</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>

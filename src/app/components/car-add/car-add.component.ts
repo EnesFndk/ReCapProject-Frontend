@@ -46,10 +46,8 @@ export class CarAddComponent implements OnInit {
       carModel.brandId = brandId
       carModel.colorId = colorId
       this.cardetailService.add(carModel).subscribe(response =>{
-        console.log(response)
         this.toastrService.success(response.message, "Başarılı")
       },responseError=> {
-        console.log(responseError.error)
         if(responseError.error.Errors.length>0){
           for (let i = 0; i < responseError.error.Errors.length; i++) {
             this.toastrService.error(responseError.error.Errors[i].ErrorMessage ,"İşlem Başarısız")
@@ -61,6 +59,8 @@ export class CarAddComponent implements OnInit {
       this.toastrService.error("Formunuz eksik", "Dikkat!")
     }
   }
+
+  
 
   getBrands() {
     this.brandService.getBrands().subscribe((response) => {

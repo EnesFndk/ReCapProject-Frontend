@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/cardetail';
 import { CarImage } from 'src/app/models/carImage';
+import { Color } from 'src/app/models/color';
 import { Rental } from 'src/app/models/rental';
+import { BrandService } from 'src/app/services/brandservice/brand.service';
+import { CardetailService } from 'src/app/services/cardetailservice/cardetail.service';
 import { CarService } from 'src/app/services/carservice/car.service';
+import { ColorService } from 'src/app/services/colorservice/color.service';
 import { RentalService } from 'src/app/services/rentalservice/rental.service';
 
 @Component({
@@ -19,6 +24,8 @@ export class CarComponent implements OnInit {
   cars: Car[];
   cardetails: CarDetail[];
   carImages: CarImage[];
+  brands: Brand[];
+  colors: Color[];
   currentImage:CarImage;
   carId:number 
   lastRental={rentalId:0, carId:0, customerId:0, rentDate: new Date(2021, 12, 12), returnDate: new Date(2021, 12, 12)}
@@ -28,13 +35,11 @@ export class CarComponent implements OnInit {
   returnDate:string;
   lastRentalReturnDate: string;
   isDatesValid = false;
-  carUpdateForm:FormGroup
 
   
   
-  
 
-  constructor(private carService:CarService, private activatedRoute: ActivatedRoute, private rentalService: RentalService, private toastrService: ToastrService,private router:Router  ) {}
+  constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private rentalService: RentalService, private toastrService: ToastrService, private router: Router) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -158,4 +163,5 @@ export class CarComponent implements OnInit {
       this.router.navigate(['/'])
     }
   }
+  
 }

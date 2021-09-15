@@ -1,0 +1,49 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">Araba sil</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carDeleteForm">
+                    <div class="mb-3">
+                        <label for="carId"><b>Araba Id</b></label>
+                        <input type="number" id="carId" formControlName="carId" class="form-control" [(ngModel)]="carId" />
+                    </div>
+                </form>
+
+                <table class="table container">
+                    <thead>
+                        <tr>
+                            <th>Car Id</th>
+                            <th>Marka</th>
+                            <th>Araç adı</th>
+                            <th>Renk</th>
+                            <th>Model yılı</th>
+                            <th>Günlük fyatı</th>
+                            <th>Açıklama</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="cardetail">
+                            <td>{{cardetail.carId}}</td>
+                            <td>{{cardetail.brandName}}</td>
+                            <td>{{cardetail.carName}}</td>
+                            <td>{{cardetail.colorName}}</td>
+                            <td>{{cardetail.modelYear}}</td>
+                            <td>{{cardetail.dailyPrice}}</td>
+                            <td>{{cardetail.description}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-dark" (click)="back()">Geri dön</button>
+                <button class="btn btn-fill btn-danger" style="float: right;" (click)="delete()">Eminim sil</button>
+
+            </div>
+        </div>
+    </div>
+</div> 
