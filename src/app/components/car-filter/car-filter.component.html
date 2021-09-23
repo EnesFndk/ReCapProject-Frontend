@@ -5,14 +5,12 @@
                 <option selected disabled value=null>Marka Seçiniz</option>
                 <option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandName}}</option>
             </select>
-           
         </div>
-
     </div>
     
     <div class="col-md-4">
         <div class="mb-3">           
-            <select [(ngModel)]="selectedColor"  class="form-select" aria-label="Default select example">
+            <select [(ngModel)]="selectedColor"  class="form-select" aria-label="Default select example" >
                 <option selected disabled value=null>Renk Seçiniz</option>
                 <option *ngFor="let color of colors" [value]="color.colorId">{{color.colorName}}</option>
             </select>

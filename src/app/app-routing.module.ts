@@ -35,24 +35,24 @@ const routes: Routes = [
 {path :"cardetails/rent/:rental" , component : PaymentComponent},
 
 {path:"cars/add", component:CarAddComponent, canActivate:[LoginGuard]},
-{path:"brands/add", component:BrandAddComponent, canActivate:[LoginGuard]},
-{path:"colors/add", component:ColorAddComponent, canActivate:[LoginGuard]},
+{path:"brands/add", component:BrandAddComponent},
+{path:"colors/add", component:ColorAddComponent},
 
-{path:"cars/list/add",component:CarAddComponent, canActivate:[LoginGuard]},
-{path:"cars/list/update/:carId",component:CarUpdateComponent, canActivate:[LoginGuard]},
-{path:"cars/list/delete/:carId",component:CarDeleteComponent, canActivate:[LoginGuard]},
+{path:"cars/list/add",component:CarAddComponent},
+{path:"cars/list/update/:carId",component:CarUpdateComponent},
+{path:"cars/list/delete/:carId",component:CarDeleteComponent},
 {path:"cars/list",component:CarListComponent},
 
 
 {path:"colors/list",component:ColorListComponent},
-{path:"colors/list/add",component:ColorListComponent, canActivate:[LoginGuard]},
-{path:"colors/list/update/:colorId",component:ColorUpdateComponent, canActivate:[LoginGuard]},
-{path:"colors/list/delete/:colorId",component:ColorDeleteComponent, canActivate:[LoginGuard]},
+{path:"colors/list/add",component:ColorListComponent},
+{path:"colors/list/update/:colorId",component:ColorUpdateComponent},
+{path:"colors/list/delete/:colorId",component:ColorDeleteComponent},
 
 {path:"brands/list",component:BrandListComponent},
-{path:"brands/list/add",component:BrandAddComponent, canActivate:[LoginGuard]},
-{path:"brands/list/update/:brandId",component:BrandUpdateComponent, canActivate:[LoginGuard]},
-{path:"brands/list/delete/:brandId",component:BrandDeleteComponent, canActivate:[LoginGuard]},
+{path:"brands/list/add",component:BrandAddComponent},
+{path:"brands/list/update/:brandId",component:BrandUpdateComponent},
+{path:"brands/list/delete/:brandId",component:BrandDeleteComponent},
 
 {path:"login",component:LoginComponent},
 {path:"register",component:RegisterComponent}
