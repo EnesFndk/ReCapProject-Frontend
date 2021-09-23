@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +32,9 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { ColorDeleteComponent } from './components/color-delete/color-delete.component';
+import { LoginComponent } from './components/login/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,9 @@ import { ColorDeleteComponent } from './components/color-delete/color-delete.com
     BrandListComponent,
     ColorUpdateComponent,
     ColorListComponent,
-    ColorDeleteComponent
+    ColorDeleteComponent,
+    LoginComponent,
+    RegisterComponent
     ],
   imports: [
     BrowserModule,
@@ -72,7 +77,9 @@ import { ColorDeleteComponent } from './components/color-delete/color-delete.com
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
