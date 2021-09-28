@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { RegisterModel } from 'src/app/models/registerModel';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalService } from 'src/app/services/localservice/local.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm : FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private authService:AuthService, private toastrService:ToastrService) { }
+  constructor(private formBuilder:FormBuilder, private authService:AuthService, private toastrService:ToastrService, private localService:LocalService) { }
 
   ngOnInit(): void {
     this.createRegisterForm();
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
       let registerModel:RegisterModel = Object.assign({}, this.registerForm.value)
       this.authService.register(registerModel).subscribe(response => {
         this.toastrService.success("Hesap oluşturuldu", " İşlem Başarılı")
+        this.localService.add("token", response.data.token)
       },responseError => {
         this.toastrService.error(responseError.error, "İşlem Başarısız")
       })

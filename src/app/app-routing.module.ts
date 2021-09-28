@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { UserProfileComponent } from './components/userProfile/user-profile/user-profile.component';
 import { LoginGuard } from './guards/login.guard';
 
 
@@ -55,7 +56,9 @@ const routes: Routes = [
 {path:"brands/list/delete/:brandId",component:BrandDeleteComponent},
 
 {path:"login",component:LoginComponent},
-{path:"register",component:RegisterComponent}
+{path:"register",component:RegisterComponent},
+
+{path:"profile" , component : UserProfileComponent , canActivate : [LoginGuard]}
 ]
 
 

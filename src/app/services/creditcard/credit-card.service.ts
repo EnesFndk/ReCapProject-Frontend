@@ -19,7 +19,12 @@ export class CreditCardService {
   }
   
   addCreditCar(creditCard:CreditCard):Observable<ResponseModel>{
-    let apiUrl = this.apiUrl + "creditCard/add"
+    let apiUrl = this.apiUrl + "creditcard/add"
     return this.httpClient.post<ResponseModel>(apiUrl , creditCard)
+  }
+
+  getCreaditCardsByCustomerId(customerId:number):Observable<ListResponseModel<CreditCard>>{
+    let apiUrl = this.apiUrl + "creditcard/getallbycustomerid?customerId" + customerId
+    return this.httpClient.get<ListResponseModel<CreditCard>>(apiUrl)
   }
 }

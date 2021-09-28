@@ -35,6 +35,7 @@ import { ColorDeleteComponent } from './components/color-delete/color-delete.com
 import { LoginComponent } from './components/login/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
+import { UserProfileComponent } from './components/userProfile/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { RegisterComponent } from './components/register/register.component';
     ColorListComponent,
     ColorDeleteComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserProfileComponent
     ],
   imports: [
     BrowserModule,
